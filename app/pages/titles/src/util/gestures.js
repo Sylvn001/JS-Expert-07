@@ -2,7 +2,7 @@ const { GestureDescription, Finger, FingerCurl } = window.fp
 
 const ScrollDownGesture = new GestureDescription('scroll-down') // ✊️
 const ScrollUpGesture = new GestureDescription('scroll-up') // 🖐
-
+const MetalGesture = new GestureDescription("metal") // 🤘 
 
 // Scroll Down
 // -----------------------------------------------------------------------------
@@ -18,6 +18,13 @@ for (let finger of [Finger.Index, Finger.Middle, Finger.Ring, Finger.Pinky]) {
   ScrollDownGesture.addCurl(finger, FingerCurl.HalfCurl, 0.9)
 }
 
+//Metal
+MetalGesture.addCurl(Finger.Thumb, FingerCurl.FullCurl, 0.5)
+MetalGesture.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0)
+MetalGesture.addCurl(Finger.Middle, FingerCurl.FullCurl, 0.5)
+MetalGesture.addCurl(Finger.Ring, FingerCurl.NoCurl, 1.0)
+MetalGesture.addCurl(Finger.Pinky, FingerCurl.FullCurl, 0.5)
+console.log(MetalGesture)
 
 // ScrollUp
 // -----------------------------------------------------------------------------
@@ -31,11 +38,13 @@ for (let finger of Finger.all) {
 const knownGestures = [
   ScrollDownGesture,
   ScrollUpGesture,
+  MetalGesture
 ]
 
 const gestureStrings = {
   'scroll-up': '🖐',
-  'scroll-down': '✊️'
+  'scroll-down': '✊️',
+  'metal': '🤘'
 }
 
 export {

@@ -30,6 +30,8 @@ export default class HandGestureService {
       const gestures = await this.estimate(hand.keypoints3D)
       if (!gestures.length) continue
 
+      console.log(gestures)
+
       const result = gestures.reduce(
         (previous, current) => (previous.score > current.score) ? previous : current
       )
